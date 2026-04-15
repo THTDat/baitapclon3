@@ -1,0 +1,45 @@
+*{
+  margin:0;
+  padding:0;
+}
+div.container{
+  background-color:#0be3e3;
+  text-align:center ;
+  margin: 10px auto;
+  padding:10px;
+  width: 350px;
+  border-radius:10px ;
+}
+form#formLogin{
+  background: white;
+  width:300px;
+  margin:50px auto;
+  padding:20px;
+  border:2px solid black ;
+  border-radius: 10px;
+  
+}
+h3#title{
+  text-transform: blue;
+  letter-spacing: 8px;
+  color:black;
+}
+div.form-group{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+input.from-control{
+  display: block;
+  width: 100%;
+  padding: 20px;
+}
+input.button{
+  background: pink;
+  padding: 10px;
+  border: none;
+ 
+
+}
+body{
+  background-image:url(../accset/imagme/dat.jpg);
+}
