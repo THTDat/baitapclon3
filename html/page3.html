@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+</head>
+
+<body>
+
+    <h2>Trang đăng ký</h2>
+
+    <form onsubmit="return check()">
+
+        <p>Tên đăng nhập:</p>
+        <input type="text" id="user">
+
+        <p>Email:</p>
+        <input type="email" id="email">
+
+        <p>Mật khẩu:</p>
+        <input type="password" id="pass">
+
+        <p>Nhập lại mật khẩu:</p>
+        <input type="password" id="repass">
+
+        <br><br>
+        <input type="submit" value="Đăng ký">
+
+    </form>
+
+    <br>
+
+    <!-- quay lại trang 2 -->
+    <input type="button" value="Quay lại" onclick="window.location.href='page2.html'">
+
+    <script>
+        function check() {
+            let p1 = document.getElementById("pass").value;
+            let p2 = document.getElementById("repass").value;
+
+            if (p1 != p2) {
+                alert("Mật khẩu không giống nhau");
+                return false;
+            }
+
+            alert("Đăng ký thành công");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
