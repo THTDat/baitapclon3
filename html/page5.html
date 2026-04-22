@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>IN Bang Cuu Chuong</title>
+</head>
+<body>
+
+<form id="formInbcc" name="formInbcc">
+    <h2>IN BANG CUU CHUONG</h2>
+    <label>Nhập số </label>
+    <input type="number" name="numberInput" min="2" max="9">
+    <button type="button" onclick="InBangCuuChuong()">IN</button>
+    <div id="kq"></div>
+</form>
+
+<script>
+function InBangCuuChuong() {
+    const myform = document.forms["formInbcc"];
+    const mynumber = myform.elements["numberInput"];
+    let num = parseInt(mynumber.value);
+
+  
+    if (isNaN(num) || num < 2 || num > 9) {
+        alert("Vui lòng nhập số từ 2 đến 9");
+        return;
+    }
+
+    
+    let ketQua = "";
+    for (let i = 1; i <= 10; i++) {
+        ketQua += num + " x " + i + " = " + (num * i) + "<br>";
+    }
+
+    document.getElementById("kq").innerHTML = ketQua;
+}
+</script>
+
+</body>
+</html>
