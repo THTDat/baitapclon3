@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>page 7</title>
+    <link rel="stylesheet" href="../css/style7.css">
+</head>
+<body>
+   
+    <script>
+      const productItem = document.createElement("div");
+    productItem.setAttribute("class", "product-item");
+
+    const productImage = document.createElement("div");
+    productImage.setAttribute("class", "product-image");
+    productItem.appendChild(productImage);
+
+    const img = document.createElement("img");
+    img.setAttribute("src", "../accset/imagme/xe.jpg");
+    img.setAttribute("alt", "Tan Dat");
+    productImage.appendChild(img);
+
+    const productInfo = document.createElement("div");
+    productInfo.setAttribute("class", "product-info");
+    productItem.appendChild(productInfo);
+
+//ten san pham
+    const name = document.createElement("p");
+    name.appendChild(document.createTextNode("tên sản phẩm"));
+
+// gia
+    const price = document.createElement("p");
+    price.appendChild(document.createTextNode("1.000đ"));
+
+// link mua
+    const link = document.createElement("a");
+    link.setAttribute("href", "#");
+    link.appendChild(document.createTextNode("MUA LIỀN TAY"));
+
+
+    productInfo.appendChild(name);
+    productInfo.appendChild(price);
+    productInfo.appendChild(link);
+
+    document.body.appendChild(productItem);
+    </script>
+</body>
+</html>
