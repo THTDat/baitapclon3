@@ -1,49 +1,58 @@
-<script>
-function addProduct(nameText, priceText, imgLink) {
+const productDatabase = [
+    { id: 1,  name: "lamborghini",        price: 240000000,  img: "../accset/imagme/xe.jpg",        desc: "" },
+    { id: 2,  name: "lamborghini huracan",        price: 1458000000,  img: "../accset/imagme/xee.jpg",        desc: "" },
+    { id: 3,  name: "lamborghini urus",        price: 2675000000,  img: "../accset/imagme/uru.jpg",        desc: "" },
+   { id: 4,  name: "Máy kéo lamborghini",        price: 1850000000,  img: "../accset/imagme/keo.jpg",        desc: "." },
+   /* { id: 5,  name: "",        price: 1090000000, img: ".",        desc: "." },
+    { id: 6,  name: "",        price: 1490000000, img: ".",        desc: "" },
+     */
+];
 
-    // tạo khung sản phẩm
-     cost productItem = document.createElement("div");
-    productItem.setAttribute("class", "product-item");
+function addProduct(imgSrc, name, price, productId) {
+    // Tạo khung chứa cha
+    const myDiv = document.createElement("div");
+    myDiv.setAttribute("class", "product-item col-sm-3");
 
-    // tạo ảnh
-    const productImage = document.createElement("div");
-    productImage.setAttribute("class", "product-image");
+    // Khung 1 – Hình ảnh
+    const myDiv1 = document.createElement("div");
+    myDiv1.setAttribute("class", "product-image");
 
-    const img = document.createElement("img");
-    img.setAttribute("src", imgLink);
-    img.setAttribute("alt", nameText);
+    const productImg = document.createElement("img");
+    productImg.setAttribute("src", imgSrc);
+    productImg.setAttribute("alt", name);
+    productImg.style.width = "100%";
 
-    productImage.appendChild(img);
-    productItem.appendChild(productImage);
+    myDiv1.appendChild(productImg);
 
-    // tạo info
-    const productInfo = document.createElement("div");
-    productInfo.setAttribute("class", "product-info");
+    // Khung 2 – Thông tin
+    const myDiv2 = document.createElement("div");
+    myDiv2.setAttribute("class", "product-info");
 
-    // tên sản phẩm
-    const name = document.createElement("p");
-    name.appendChild(document.createTextNode(nameText));
+    const productName = document.createElement("p");
+    productName.setAttribute("class", "product-name");
+    productName.innerText = name;
 
-    // giá
-    const price = document.createElement("p");
-    price.appendChild(document.createTextNode(priceText));
+    const productPrice = document.createElement("p");
+    productPrice.setAttribute("class", "product-price");
+    productPrice.innerText = price.toLocaleString("vi-VN");
 
-    // link mua
-    const link = document.createElement("a");
-    link.setAttribute("href", "#");
-    link.appendChild(document.createTextNode("MUA LIỀN TAY"));
+    const productBtn = document.createElement("a");
+    productBtn.setAttribute("class", "btn-detail");
+    productBtn.setAttribute("href", "../html/detail.html?id=" + productId);
+    productBtn.innerText = "Xem chi tiết";
 
-    // gắn vào info
-    productInfo.appendChild(name);
-    productInfo.appendChild(price);
-    productInfo.appendChild(link);
+    myDiv2.appendChild(productName);
+    myDiv2.appendChild(productPrice);
+    myDiv2.appendChild(productBtn);
 
-    productItem.appendChild(productInfo);
+    myDiv.appendChild(myDiv1);
+    myDiv.appendChild(myDiv2);
 
-    // hiển thị ra web
-    document.body.appendChild(productItem);
+    document.getElementById("product-list").appendChild(myDiv);
 }
 
-// gọi function để hiển thị sản phẩm
-addProduct("Áo đẹp", "1.000đ", "./accset/imagne/hoa.jpg");
-</script>
+function addProduct_v2(products) {
+    products.forEach(function(product) {
+        addProduct(product.img, product.name, product.price, product.id);
+    });
+}
